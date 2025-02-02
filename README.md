@@ -6,7 +6,7 @@ IQ Booster is an interactive quiz app that enhances users' knowledge through a l
 ## 🚀 Features
 
 ✅ **Leaderboard Score System**: Earn points by answering quiz questions.  
-✅ **Topic Selection**: Choose from topics like arithmetic and general knowledge.  
+✅ **Topic Selection**: Choose from topics like arithmetic operations and unit conversion etc   
 ✅ **Adaptive Difficulty**: Questions adapt based on user performance, powered by Google Gemini.  
 ✅ **Timed Questions**: Each question has a time limit.  
 ✅ **Dashboard**: Tracks quizzes taken, correct/incorrect answers, and total questions answered.  
