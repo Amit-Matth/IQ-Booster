@@ -50,7 +50,7 @@ public class QuestionsGeneratorActivity extends AppCompatActivity {
         RemoteConfigHelper remoteConfigHelper = new RemoteConfigHelper();
         remoteConfigHelper.fetchApiKey(apiKey -> {
 
-        GenerativeModel gm = new GenerativeModel("gemini-pro",
+        GenerativeModel gm = new GenerativeModel("gemini-2.0-flash",
                 apiKey);
 
         GenerativeModelFutures model = GenerativeModelFutures.from(gm);
