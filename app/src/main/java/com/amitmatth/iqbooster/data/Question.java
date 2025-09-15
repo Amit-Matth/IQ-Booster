@@ -9,6 +9,7 @@ public class Question {
     private String option3;
     private String option4;
     private String correctAnswer;
+    private String explanation;
 
     public Question(
             int id,
@@ -17,7 +18,8 @@ public class Question {
             String option2,
             String option3,
             String option4,
-            String correctAnswer) {
+            String correctAnswer,
+            String explanation) {
         this.id = id;
         this.questionText = questionText;
         this.option1 = option1;
@@ -25,9 +27,11 @@ public class Question {
         this.option3 = option3;
         this.option4 = option4;
         this.correctAnswer = correctAnswer;
+        this.explanation = explanation;
     }
 
-    public Question() {}
+    public Question() {
+    }
 
     public int getId() {
         return this.id;
@@ -85,4 +89,11 @@ public class Question {
         this.correctAnswer = correctAnswer;
     }
 
+    public String getExplanation() {
+        return explanation;
+    }
+
+    public void setExplanation(String explanation) {
+        this.explanation = explanation;
+    }
 }

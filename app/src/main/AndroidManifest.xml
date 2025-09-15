@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
 
     <application
         android:allowBackup="true"
@@ -14,12 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
 
-        <activity
-            android:name=".helper.QuestionsGeneratorActivity"
-            android:theme="@style/NoAppAndBottomBar"
-            android:screenOrientation="portrait"
-            android:exported="false"
-            tools:ignore="LockedOrientationActivity" />
         <receiver android:name=".network.InternetReceiver"
             android:exported="false">
             <intent-filter>
@@ -35,7 +29,6 @@
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -50,9 +43,9 @@
             android:theme="@style/NoAppAndBottomBar"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".activities.QuestionsActivity"
+            android:name=".activities.FullscreenImageActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/NoAppAndBottomBar"
+            android:theme="@style/NoAppAndBottomBar" 
             tools:ignore="LockedOrientationActivity" />
     </application>
 

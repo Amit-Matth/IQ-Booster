@@ -1,0 +1,13 @@
+<resources>
+    <declare-styleable name="HolographicView">
+        <attr name="hologramColor" format="color" />
+        <attr name="pulseSpeed" format="integer" />
+        <attr name="glowRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="NeonText">
+        <attr name="neonColor" format="color" />
+        <attr name="glowIntensity" format="float" />
+        <attr name="flickerEffect" format="boolean" />
+    </declare-styleable>
+</resources>

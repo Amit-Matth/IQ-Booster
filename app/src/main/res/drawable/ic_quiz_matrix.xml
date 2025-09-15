@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="28"
+    android:viewportHeight="28">
+
+    <!-- Outer rounded square -->
+    <path
+        android:pathData="M4,4 L24,4 L24,24 L4,24 Z"
+        android:strokeColor="#00FFFF"
+        android:strokeWidth="2"
+        android:fillColor="#1100FFFF"
+        android:strokeLineJoin="round" />
+
+    <!-- Plus sign / cross in the center (two subpaths) -->
+    <path
+        android:pathData="M14,8 L14,16 M10,12 L18,12"
+        android:strokeColor="#00FFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Four small filled dots (replaced <circle> with arc-based paths) -->
+    <path
+        android:pathData="M9,8 A1,1 0 1,0 7,8 A1,1 0 1,0 9,8 Z"
+        android:fillColor="#00FFFF" />
+
+    <path
+        android:pathData="M21,8 A1,1 0 1,0 19,8 A1,1 0 1,0 21,8 Z"
+        android:fillColor="#00FFFF" />
+
+    <path
+        android:pathData="M9,20 A1,1 0 1,0 7,20 A1,1 0 1,0 9,20 Z"
+        android:fillColor="#00FFFF" />
+
+    <path
+        android:pathData="M21,20 A1,1 0 1,0 19,20 A1,1 0 1,0 21,20 Z"
+        android:fillColor="#00FFFF" />
+
+</vector>

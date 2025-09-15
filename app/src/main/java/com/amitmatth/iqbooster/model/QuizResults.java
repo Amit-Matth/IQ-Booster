@@ -7,7 +7,8 @@ public class QuizResults {
     public int wrong;
     public int totalQuizzes;
 
-    public QuizResults() {} // Required for Firebase
+    public QuizResults() {
+    }
 
     public QuizResults(int totalQuestions, int correct, int skipped, int wrong, int totalQuizzes) {
         this.totalQuestions = totalQuestions;

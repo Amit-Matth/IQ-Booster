@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@drawable/futuristic_profile_background"
+    tools:context=".fragments.AnswerExplanationFragment">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/back_to_quiz_button" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:text="Return to Quiz"
+        android:textColor="@color/neon_purple"
+        android:fontFamily="@font/tech_font"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/futuristic_button_secondary"
+        app:cornerRadius="12dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/back_to_quiz_button"
+        android:layout_marginTop="16dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Question"
+                android:textColor="@color/neon_cyan"
+                android:fontFamily="@font/futuristic_font"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/question_to_explain_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                tools:text="[Question text will appear here]"
+                android:textColor="@color/tech_white"
+                android:fontFamily="@font/tech_font"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Correct Answer:"
+                android:textColor="@color/neon_green"
+                android:fontFamily="@font/futuristic_font"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/correct_answer_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" 
+                tools:text="[Correct answer will appear here]"
+                android:textColor="@color/tech_white"
+                android:fontFamily="@font/tech_font"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Your Answer:"
+                android:textColor="@color/yellow_skipped_stats"
+                android:fontFamily="@font/futuristic_font"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/user_answer_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                tools:text="[User's answer will appear here]"
+                android:textColor="@color/tech_white"
+                android:fontFamily="@font/tech_font"
+                android:textSize="16sp" />
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/tech_line_gradient_thin"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Explanation By AI:"
+                android:textColor="@color/neon_cyan"
+                android:fontFamily="@font/futuristic_font"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <ProgressBar
+                android:id="@+id/explanation_progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/neon_cyan_glow"
+                android:visibility="gone" 
+                tools:visibility="visible"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/ai_explanation_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Establishing neural link... Transmitting cognitive data stream..."
+                android:textColor="@color/neon_purple_dim"
+                android:fontFamily="@font/tech_font"
+                android:textSize="16sp"
+                android:minLines="3"/>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

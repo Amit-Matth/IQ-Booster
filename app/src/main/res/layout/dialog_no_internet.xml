@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/futuristic_dialog_background" 
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_no_internet"
+        app:tint="@color/warning_yellow" 
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/dialog_title_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connection Offline"
+        android:textColor="@color/neon_cyan"
+        android:fontFamily="@font/futuristic_font"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:shadowColor="@color/neon_cyan_glow"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="8"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/dialog_message_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No internet connection. You can continue playing offline. Your data will sync automatically once you’re back online."
+        android:textColor="@color/tech_white"
+        android:fontFamily="@font/tech_font"
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="4dp"
+        android:alpha="0.9"
+        android:layout_marginBottom="24dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dialog_ok_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:textColor="@color/neon_purple"
+        android:fontFamily="@font/tech_font"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="12dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/futuristic_button_secondary"
+        app:cornerRadius="12dp" />
+
+</LinearLayout>

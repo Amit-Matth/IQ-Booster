@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/futuristic_profile_background"
+    android:padding="24dp" 
+    tools:context=".fragments.QuestionsFragment">
+
+    <LinearLayout
+        android:id="@+id/question_playground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/top_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="10dp" 
+                android:layout_weight="1"
+                android:layout_marginEnd="16dp"
+                android:max="100"
+                android:progress="100"
+                android:progressDrawable="@drawable/progress_bar" /> 
+
+            <TextView
+                android:id="@+id/timer_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="TIME: 00:30"
+                android:textColor="@color/neon_cyan"
+                android:fontFamily="@font/tech_font"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/question_card"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="false">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/profile_card_background"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/question_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="Q1. Initiate quantum entanglement sequence?"
+                        android:textColor="@color/neon_cyan"
+                        android:fontFamily="@font/futuristic_font"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:lineSpacingMultiplier="1.2"
+                        android:shadowColor="@color/neon_cyan_glow"
+                        android:shadowDx="0"
+                        android:shadowDy="0"
+                        android:shadowRadius="8"
+                        android:layout_marginBottom="24dp"/>
+
+                    <RadioGroup
+                        android:id="@+id/options_radio_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton 
+                            android:id="@+id/option1"
+                            android:padding="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="Option Alpha: Affirmative"
+                            android:textColor="@color/neon_purple"
+                            android:fontFamily="@font/tech_font"
+                            android:textSize="18sp"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@drawable/option_background_selector"
+                            app:buttonTint="@color/neon_cyan"/>
+                        <RadioButton 
+                            android:id="@+id/option2"
+                            android:padding="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="Option Beta: Negative"
+                            android:textColor="@color/neon_purple"
+                            android:fontFamily="@font/tech_font"
+                            android:textSize="18sp"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@drawable/option_background_selector"
+                            app:buttonTint="@color/neon_cyan"/>
+                        <RadioButton 
+                            android:id="@+id/option3"
+                            android:padding="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="Option Gamma: Recalibrate"
+                            android:textColor="@color/neon_purple"
+                            android:fontFamily="@font/tech_font"
+                            android:textSize="18sp"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@drawable/option_background_selector"
+                            app:buttonTint="@color/neon_cyan"/>
+                        <RadioButton 
+                            android:id="@+id/option4"
+                            android:padding="12dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:text="Option Delta: Defer"
+                            android:textColor="@color/neon_purple"
+                            android:fontFamily="@font/tech_font"
+                            android:textSize="18sp"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@drawable/option_background_selector"
+                            app:buttonTint="@color/neon_cyan"/>
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/answer_feedback_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center"
+                        tools:text="Anomaly Detected: Re-routing neural pathways..."
+                        android:textColor="@color/warning_yellow" 
+                        android:fontFamily="@font/tech_font"
+                        android:textSize="16sp"
+                        android:textStyle="italic"
+                        android:visibility="gone"/>
+                </LinearLayout>
+            </ScrollView>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:id="@+id/navigation_controls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/explain_answer_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Explanation"
+                android:textColor="@color/neon_purple"
+                android:fontFamily="@font/tech_font"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:paddingVertical="12dp"
+                app:backgroundTint="@null"
+                android:background="@drawable/futuristic_button_secondary"
+                app:cornerRadius="12dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/previous_question_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Previous"
+                    android:textColor="@color/neon_purple"
+                    android:fontFamily="@font/tech_font"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.05"
+                    android:paddingVertical="12dp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/futuristic_button_secondary"
+                    app:cornerRadius="12dp"
+                    android:layout_marginEnd="8dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/next_question_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Next"
+                    android:textColor="@color/neon_cyan"
+                    android:fontFamily="@font/tech_font"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05"
+                    android:paddingVertical="12dp"
+                    app:backgroundTint="@null"
+                    android:background="@drawable/futuristic_button_primary"
+                    app:cornerRadius="12dp"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/leave_quiz_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Leave Quiz"
+                android:textColor="@color/error_red"
+                android:fontFamily="@font/tech_font"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:paddingVertical="12dp"
+                app:backgroundTint="@null"
+                android:background="@drawable/futuristic_button_destructive"
+                app:cornerRadius="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/questions_overview_container" 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:background="@drawable/futuristic_profile_background"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transmission Summary"
+            android:textColor="@color/neon_cyan"
+            android:fontFamily="@font/futuristic_font"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.03"
+            android:shadowColor="@color/neon_cyan_glow"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="10"
+            android:layout_marginBottom="32dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="false"
+            android:layout_marginBottom="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/profile_card_background"
+                android:padding="24dp">
+
+                <TextView 
+                    android:id="@+id/total_questions_current_summary" 
+                    tools:text="Total Packets: 10"
+                    android:textColor="@color/tech_white"
+                    android:fontFamily="@font/tech_font"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView 
+                    android:id="@+id/correct_questions_current_summary" 
+                    tools:text="Verified: 7"
+                    android:textColor="@color/neon_green"
+                    android:fontFamily="@font/tech_font"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView 
+                    android:id="@+id/wrong_questions_current_summary" 
+                    tools:text="Corrupted: 2"
+                    android:textColor="@color/error_red" 
+                    android:fontFamily="@font/tech_font"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView 
+                    android:id="@+id/skipped_questions_current_summary" 
+                    tools:text="Dropped: 1"
+                    android:textColor="@color/warning_yellow"
+                    android:fontFamily="@font/tech_font"
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+       <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:cardUseCompatPadding="false">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/profile_card_background"
+                android:gravity="center_horizontal"
+                android:padding="24dp">
+                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Integrity Score"
+                    android:textColor="@color/tech_white"
+                    android:fontFamily="@font/tech_font"
+                    android:alpha="0.8"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"/>
+                 <TextView
+                    android:id="@+id/score_summary"
+                    tools:text="70%"
+                    android:textColor="@color/neon_green"
+                    android:fontFamily="@font/futuristic_font"
+                    android:textSize="40sp"
+                    android:textStyle="bold"
+                    android:shadowColor="@color/neon_green_glow"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="12"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_menu_button_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:text="Return to Ops Center"
+            android:textColor="@color/neon_purple"
+            android:fontFamily="@font/tech_font"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            app:backgroundTint="@null"
+            android:background="@drawable/futuristic_button_secondary"
+            app:cornerRadius="12dp" />
+    </LinearLayout>
+
+</RelativeLayout>

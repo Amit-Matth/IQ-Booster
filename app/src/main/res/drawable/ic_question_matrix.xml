@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="28"
+    android:viewportHeight="28">
+
+    <!-- Outer circle (center 14,14 radius 10) -->
+    <path
+        android:pathData="M24,14 A10,10 0 1,0 4,14 A10,10 0 1,0 24,14 Z"
+        android:strokeColor="#FF00FF"
+        android:strokeWidth="2"
+        android:fillColor="#22FF00FF" />
+
+    <!-- Curved path (same as your original) -->
+    <path
+        android:pathData="M14,8 C16,8 18,9 18,11 C18,13 16,14 14,14"
+        android:strokeColor="#FF00FF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Small dot at (14,18) radius 1 -->
+    <path
+        android:pathData="M15,18 A1,1 0 1,0 13,18 A1,1 0 1,0 15,18 Z"
+        android:fillColor="#FF00FF" />
+
+</vector>

@@ -24,37 +24,30 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Inflate and get instance of binding
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
 
-        // Set content view to binding's root
         setContentView(binding.getRoot());
 
-        // Loading Animation from resource
         Animation iconAnim = AnimationUtils.loadAnimation(this, R.anim.splash_iconimg_anim);
         Animation boosterAnim = AnimationUtils.loadAnimation(this, R.anim.splash_boosterimg_anim);
 
-        // Starting the animations
         binding.iconimg.startAnimation(iconAnim);
         binding.boosterimg.startAnimation(boosterAnim);
-        
-        // Use a Handler to delay the transition to MainActivity
-        new Handler().postDelayed(() -> {
-        SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
-        boolean check = prefs.getBoolean("flag", false);
 
-        if(check){
-        // Start the main activity after the animation ends
-            intent = new Intent(SplashActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish(); // Close the splash activity
-        }else{
-            //Start the userdetails activity
-            intent = new Intent(SplashActivity.this, SignInActivity.class);
-            startActivity(intent);
-            finish();
-        }
-            
+        new Handler().postDelayed(() -> {
+            SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
+            boolean check = prefs.getBoolean("flag", false);
+
+            if (check) {
+                intent = new Intent(SplashActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                intent = new Intent(SplashActivity.this, SignInActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
         }, SPLASH_TIME_OUT);
     }
 }

@@ -3,31 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/rounded_dialog_background"
+    android:background="@drawable/profile_card_background"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="24dp"
+    android:minWidth="300dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
 
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/exit" />
-
-        <Space
-            android:layout_width="11dp"
-            android:layout_height="wrap_content"/>
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/exit"
+            app:tint="@color/warning_yellow"
+            android:layout_marginEnd="12dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
             android:text="Are you sure to leave?"
-            android:textSize="18sp"
+            android:textColor="@color/neon_cyan"
+            android:fontFamily="@font/futuristic_font"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -35,14 +36,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="20dp"
-        android:text="The following progress would not be saved."
-        android:textSize="14sp" />
+        android:text="Your current progress in this quiz will not be saved."
+        android:textColor="@color/tech_white"
+        android:fontFamily="@font/tech_font"
+        android:textSize="16sp"
+        android:alpha="0.8"
+        android:layout_marginBottom="24dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:gravity="end"
         android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
@@ -51,16 +55,24 @@
             android:layout_height="wrap_content"
             android:text="Cancel"
             android:textAllCaps="false"
-            app:cornerRadius="11dp" />
+            android:fontFamily="@font/tech_font"
+            android:textColor="@color/neon_purple"
+            app:backgroundTint="@null"
+            android:background="@drawable/futuristic_button_secondary"
+            app:cornerRadius="12dp"
+            android:layout_marginEnd="12dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:text="Exit"
             android:textAllCaps="false"
-            app:cornerRadius="11dp" />
+            android:fontFamily="@font/tech_font"
+            android:textColor="@color/neon_cyan"
+            app:backgroundTint="@null"
+            android:background="@drawable/futuristic_button_primary"
+            app:cornerRadius="12dp" />
     </LinearLayout>
 
 </LinearLayout>

@@ -1,0 +1,18 @@
+<animated-rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:fromDegrees="0"
+    android:toDegrees="360"
+    android:duration="3000"
+    android:repeatCount="infinite">
+    <shape android:shape="ring"
+        android:innerRadiusRatio="4"
+        android:thicknessRatio="12"
+        android:useLevel="false">
+        <gradient
+            android:startColor="#00FFFF"
+            android:centerColor="#00AAFF"
+            android:endColor="#0088FF"
+            android:type="sweep" />
+    </shape>
+</animated-rotate>

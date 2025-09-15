@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/futuristic_profile_background">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,163 +21,157 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="21dp"
-                android:shadowRadius="1"
-                android:text="Start with"
-                android:textColor="#2596be"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="24dp"
+                android:text="Select Category"
+                android:textColor="@color/neon_cyan"
+                android:textSize="26sp"
+                android:fontFamily="@font/futuristic_font"
+                android:textStyle="bold"
+                android:letterSpacing="0.02"
+                android:shadowColor="@color/neon_cyan_glow"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="8" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/arithmeticCard"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/arithmetic_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="21dp"
-                cardview:cardBackgroundColor="@android:color/white"
-                cardview:cardCornerRadius="11dp"
-                cardview:cardElevation="11dp">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@android:color/black" />
+                android:layout_marginHorizontal="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:cardUseCompatPadding="false">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/profile_card_background" 
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="18dp">
+                    android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
                         android:contentDescription="Arithmetic"
-                        android:src="@drawable/arithmetic" />
+                        android:src="@drawable/arithmetic"
+                        app:tint="@color/neon_cyan" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="20dp"
                         android:layout_weight="1"
                         android:text="Arithmetic Operations"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
+                        android:textColor="@color/tech_white"
+                        android:fontFamily="@font/tech_font"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:contentDescription="Arrow"
-                        android:src="@drawable/right_arrow_vector" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/unitConversionCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="21dp"
-                android:layout_marginTop="11dp"
-                cardview:cardBackgroundColor="@android:color/white"
-                cardview:cardCornerRadius="11dp"
-                cardview:cardElevation="11dp">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@android:color/black" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="18dp">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:contentDescription="Arrow"
-                        android:src="@drawable/unit" />
+                        android:src="@drawable/right_arrow_vector"
+                        app:tint="@color/neon_cyan" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/unit_conversion_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="20dp"
+                android:layout_marginTop="8dp"
+                app:cardElevation="10dp"
+                app:cardUseCompatPadding="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/profile_card_background"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:contentDescription="Unit Conversion"
+                        android:src="@drawable/unit"
+                        app:tint="@color/neon_purple" /> 
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="20dp"
                         android:layout_weight="1"
                         android:text="Unit Conversion"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
+                        android:textColor="@color/tech_white"
+                        android:fontFamily="@font/tech_font"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:contentDescription="Arrow"
-                        android:src="@drawable/right_arrow_vector" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/rootCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="21dp"
-                android:layout_marginTop="11dp"
-                cardview:cardBackgroundColor="@android:color/white"
-                cardview:cardCornerRadius="11dp"
-                cardview:cardElevation="11dp">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@android:color/black" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="18dp">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:contentDescription="Arrow"
-                        android:src="@drawable/square_root" />
+                        android:src="@drawable/right_arrow_vector"
+                        app:tint="@color/neon_purple" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/root_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="20dp"
+                android:layout_marginTop="8dp"
+                app:cardElevation="10dp"
+                app:cardUseCompatPadding="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/profile_card_background"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:contentDescription="Square Root"
+                        android:src="@drawable/square_root"
+                        app:tint="@color/neon_green" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="20dp"
                         android:layout_weight="1"
                         android:text="Perfect Square Root"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp"
+                        android:textColor="@color/tech_white"
+                        android:fontFamily="@font/tech_font"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:contentDescription="Arrow"
-                        android:src="@drawable/right_arrow_vector" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="21dp" />
+                        android:src="@drawable/right_arrow_vector"
+                        app:tint="@color/neon_green" />
+                    </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
-
     </ScrollView>
-
 </LinearLayout>

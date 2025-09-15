@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@drawable/futuristic_profile_background"
+    tools:context=".fragments.QuizSetupFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quiz Setup"
+        android:textColor="@color/neon_cyan"
+        android:fontFamily="@font/futuristic_font"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.03"
+        android:shadowColor="@color/neon_cyan_glow"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="10"
+        android:layout_marginBottom="32dp"/>
+
+    <TextView
+        android:id="@+id/category_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Category: Arithmetic"
+        android:textColor="@color/tech_white"
+        android:fontFamily="@font/tech_font"
+        android:textSize="18sp"
+        android:alpha="0.9"
+        android:layout_marginBottom="24dp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/num_questions_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Number of Questions"
+        app:hintTextColor="@color/neon_purple"
+        app:boxStrokeColor="@color/neon_cyan_glow"
+        app:boxBackgroundColor="#2A000000"
+        app:endIconTint="@color/neon_purple"
+        android:textColorHint="@color/neon_purple_dim"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/num_questions_dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:textColor="@color/tech_white"
+            android:fontFamily="@font/tech_font"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            tools:text="10" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/difficulty_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Difficulty"
+        app:hintTextColor="@color/neon_purple"
+        app:boxStrokeColor="@color/neon_cyan_glow"
+        app:boxBackgroundColor="#2A000000"
+        app:endIconTint="@color/neon_purple"
+        android:textColorHint="@color/neon_purple_dim"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp">
+
+        <AutoCompleteTextView
+            android:id="@+id/difficulty_dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:textColor="@color/tech_white"
+            android:fontFamily="@font/tech_font"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            tools:text="Medium" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/quiz_rules_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/tech_white"
+        android:fontFamily="@font/tech_font"
+        android:textSize="14sp"
+        android:alpha="0.9"
+        android:padding="8dp"
+        android:background="#1AFFFFFF"
+        android:lineSpacingExtra="4dp"
+        tools:text="Time: 10 seconds per question
+Correct: +3 marks
+Wrong: -3 marks" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Return To Selection"
+        android:textColor="@color/neon_purple"
+        android:fontFamily="@font/tech_font"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/futuristic_button_secondary"
+        app:cornerRadius="12dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/start_quiz_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Start Quiz"
+        android:textColor="@color/neon_cyan"
+        android:fontFamily="@font/tech_font"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/futuristic_button_primary"
+        app:cornerRadius="12dp" />
+
+</LinearLayout>

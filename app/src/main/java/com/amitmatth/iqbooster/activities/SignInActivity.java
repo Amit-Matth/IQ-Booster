@@ -1,10 +1,13 @@
 package com.amitmatth.iqbooster.activities;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -12,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.amitmatth.iqbooster.R;
 import com.amitmatth.iqbooster.databinding.ActivitySignInBinding;
-import com.amitmatth.iqbooster.model.SignedUsers;
+import com.amitmatth.iqbooster.model.QuizResults;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -25,8 +28,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -35,6 +44,7 @@ public class SignInActivity extends AppCompatActivity {
     private static final String TAG = "GoogleSignIn";
     private FirebaseAuth firebaseAuth;
     private GoogleSignInClient googleSignInClient;
+    private ObjectAnimator progressBarAnimator;
 
 
     @Override
@@ -59,7 +69,38 @@ public class SignInActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        updateUI(currentUser);
+        if (currentUser != null) {
+            if (binding != null) {
+                binding.signInActivity.setVisibility(View.GONE);
+                binding.progressBar.setVisibility(View.VISIBLE);
+                startLoadingAnimation();
+            }
+            updateUI(currentUser);
+        } else {
+            if (binding != null) {
+                binding.signInActivity.setVisibility(View.VISIBLE);
+                binding.progressBar.setVisibility(View.GONE);
+                stopLoadingAnimation();
+            }
+        }
+    }
+
+    private void startLoadingAnimation() {
+        if (binding != null && binding.progressBar != null) {
+            progressBarAnimator = ObjectAnimator.ofFloat(binding.progressBar, "rotation", 0f, 360f);
+            progressBarAnimator.setDuration(1000);
+            progressBarAnimator.setRepeatCount(ValueAnimator.INFINITE);
+            progressBarAnimator.setRepeatMode(ValueAnimator.RESTART);
+            progressBarAnimator.setInterpolator(new LinearInterpolator());
+            progressBarAnimator.start();
+        }
+    }
+
+    private void stopLoadingAnimation() {
+        if (progressBarAnimator != null) {
+            progressBarAnimator.cancel();
+            progressBarAnimator = null;
+        }
     }
 
     private void signIn() {
@@ -75,30 +116,38 @@ public class SignInActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                Log.d("signed successfully", "firebaseAuthWithGoogle:" + account.getId());
+                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
-                Log.w("signed error", "Google sign in failed", e);
+                Log.w(TAG, "Google sign in failed", e);
                 Toast.makeText(this, "Sign-in failed. Please try again.", Toast.LENGTH_SHORT).show();
+                if (binding != null) {
+                    binding.signInActivity.setVisibility(View.VISIBLE);
+                    binding.progressBar.setVisibility(View.GONE);
+                    stopLoadingAnimation();
+                }
             }
         }
     }
 
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
-        binding.progressBar.setVisibility(View.VISIBLE);
-        binding.signInActivity.setVisibility(View.GONE);
+        if (binding != null) {
+            binding.progressBar.setVisibility(View.VISIBLE);
+            startLoadingAnimation();
+            binding.signInActivity.setVisibility(View.GONE);
+        }
 
         firebaseAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Log.d("signInWithCredential", "signInWithCredential:success");
+                            Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             updateUI(user);
                         } else {
-                            Log.w("signInWithCredential", "signInWithCredential:failure", task.getException());
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
                             updateUI(null);
                         }
                     }
@@ -107,28 +156,78 @@ public class SignInActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
 
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            String photoUrl = (user.getPhotoUrl() != null) ? user.getPhotoUrl().toString() : null;
+            userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    Map<String, Object> updates = new HashMap<>();
+                    updates.put("name", user.getDisplayName());
+                    updates.put("email", user.getEmail());
+                    if (user.getPhotoUrl() != null) {
+                        updates.put("photoUrl", user.getPhotoUrl().toString());
+                    } else {
+                        updates.put("photoUrl", null);
+                    }
 
+                    if (!snapshot.child("score").exists()) {
+                        updates.put("score", 0);
+                    }
 
+                    if (!snapshot.child("quizResults").exists()) {
+                        updates.put("quizResults", new QuizResults(0, 0, 0, 0, 0));
+                    }
 
-            DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-            database.child("users").child(user.getUid()).setValue(new SignedUsers(name, email, photoUrl, 0));
+                    if (!updates.isEmpty()) {
+                        userRef.updateChildren(updates).addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                Log.d(TAG, "User profile updated/initialized.");
+                            } else {
+                                Log.w(TAG, "Failed to update user profile.", task.getException());
+                            }
+                            proceedToMainActivity();
+                        });
+                    } else {
+                        proceedToMainActivity();
+                    }
+                }
 
-
-            SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean("flag", true);
-            editor.apply();
-
-            Intent mainActivityIntent = new Intent(this, MainActivity.class);
-            startActivity(mainActivityIntent);
-            finish();
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Log.w(TAG, "Failed to read user data for initialization check.", error.toException());
+                    proceedToMainActivity();
+                }
+            });
         } else {
-            binding.signInActivity.setVisibility(View.VISIBLE);
+            if (binding != null) {
+                binding.signInActivity.setVisibility(View.VISIBLE);
+                binding.progressBar.setVisibility(View.GONE);
+                stopLoadingAnimation();
+            }
+        }
+    }
+
+    private void proceedToMainActivity() {
+        stopLoadingAnimation();
+        if (binding != null) {
             binding.progressBar.setVisibility(View.GONE);
         }
+
+        SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("flag", true);
+        editor.apply();
+
+        Intent mainActivityIntent = new Intent(SignInActivity.this, MainActivity.class);
+        mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(mainActivityIntent);
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopLoadingAnimation();
+        binding = null;
     }
 }

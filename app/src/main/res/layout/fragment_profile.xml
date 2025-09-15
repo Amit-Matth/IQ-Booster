@@ -1,343 +1,575 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <ProgressBar
-        android:id="@+id/profileProgressBar"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:visibility="gone" />
+    android:background="@drawable/futuristic_profile_background">
 
     <ScrollView
-        android:id="@+id/profileView"
+        android:id="@+id/profile_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
         android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
 
-            <androidx.cardview.widget.CardView
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="@android:color/white"
-                app:cardCornerRadius="11dp">
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp">
 
-                <LinearLayout
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/profile_card_glow_effect"
+                    android:layout_margin="-4dp" />
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#000000" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="21dp" />
-
-                    <ImageView
-                        android:id="@+id/userprofile"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp" />
-
-                    <TextView
-                        android:id="@+id/name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:shadowColor="#41559f"
-                        android:shadowDx="2"
-                        android:shadowDy="4"
-                        android:textColor="#2596be"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp" />
-
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="21dp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#000000" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="11dp"
-                app:cardBackgroundColor="@android:color/white"
-                app:cardCornerRadius="11dp"
-                app:cardElevation="11dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#000000" />
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="12dp"
+                    app:cardUseCompatPadding="false">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingVertical="16dp">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="start"
-                            android:orientation="vertical"
-                            android:paddingStart="21dp">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
-
-                                <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:src="@drawable/point"
-                                    app:tint="#2596be" />
-
-                                <TextView
-                                    android:id="@+id/totalQuizzes"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="8dp"
-                                    android:textColor="#2596be" />
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:text="Total Quizzes" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="start"
-                            android:orientation="vertical"
-                            android:paddingStart="21dp">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
-
-                                <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:src="@drawable/point"
-                                    app:tint="#2596be" />
-
-                                <TextView
-                                    android:id="@+id/totalQuestions"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="8dp"
-                                    android:textColor="#2596be" />
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:text="Total Questions" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingBottom="16dp">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="start"
-                            android:orientation="vertical"
-                            android:paddingStart="21dp">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
-
-                                <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:src="@drawable/point"
-                                    app:tint="#00ff00" />
-
-                                <TextView
-                                    android:id="@+id/totalCorrectQuestions"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="8dp"
-                                    android:textColor="#00ff00" />
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:text="Correct Questions" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="start"
-                            android:orientation="vertical"
-                            android:paddingStart="21dp">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="start"
-                                android:orientation="horizontal">
-
-                                <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:src="@drawable/point"
-                                    app:tint="#ff0000" />
-
-                                <TextView
-                                    android:id="@+id/totalWrongQuestions"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="8dp"
-                                    android:textColor="#ff0000" />
-                            </LinearLayout>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:text="Wrong Questions" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:background="@drawable/profile_card_background"
                         android:gravity="center_horizontal"
-                        android:orientation="horizontal">
+                        android:orientation="vertical"
+                        android:padding="32dp">
 
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/point"
-                            app:tint="#CDDC39" />
+                        <FrameLayout
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
+                            android:layout_gravity="center">
 
-                        <TextView
+                            <View
+                                android:id="@+id/avatar_outer_ring"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/avatar_energy_ring_outer" />
+
+                            <View
+                                android:id="@+id/avatar_inner_ring"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/avatar_energy_ring_inner"
+                                android:layout_margin="8dp" />
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:layout_gravity="center"
+                                app:cardCornerRadius="60dp"
+                                app:cardElevation="8dp"
+                                app:cardUseCompatPadding="false"
+                                android:background="@drawable/avatar_frame_background">
+
+                                <ImageView
+                                    android:id="@+id/user_profile_image"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:contentDescription="User Profile Picture"
+                                    android:src="@mipmap/ic_launcher_round" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/avatar_holographic_overlay"
+                                    android:alpha="0.3" />
+
+                            </com.google.android.material.card.MaterialCardView>
+
+
+                        </FrameLayout>
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="16dp"
-                            android:text="Your Skipped Questions: " />
+                            android:layout_marginTop="24dp"
+                            android:orientation="vertical"
+                            android:gravity="center">
 
-                        <TextView
-                            android:id="@+id/totalSkippedQuestions"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/name_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/neon_cyan"
+                                android:textSize="26sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/futuristic_font"
+                                android:letterSpacing="0.02"
+                                android:shadowColor="@color/neon_cyan_glow"
+                                android:shadowDx="0"
+                                android:shadowDy="0"
+                                android:shadowRadius="8"
+                                tools:text="NEURAL_USER_001" />
+
+                            <TextView
+                                android:id="@+id/email_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:textColor="@color/tech_white"
+                                android:textSize="16sp"
+                                android:fontFamily="@font/tech_font"
+                                android:alpha="0.8"
+                                tools:text="user@quantumnet.sys" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/ic_level_chip"
+                                    android:tint="@color/neon_purple" />
+
+                                <TextView
+                                    android:id="@+id/user_level_text_view"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:textColor="@color/neon_purple"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/tech_font"
+                                    android:shadowColor="@color/neon_purple"
+                                    android:shadowDx="0"
+                                    android:shadowDy="0"
+                                    android:shadowRadius="6"
+                                    tools:text="QUANTUM LEVEL: 5" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/stats_matrix_background"
+                    android:layout_margin="-2dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="10dp"
+                    app:cardUseCompatPadding="false">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/stats_card_background"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="#CDDC39"
-                            android:text="0"
-                            android:layout_gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="20dp">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_stats_matrix"
+                                android:tint="@color/neon_green" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:text="PERFORMANCE MATRIX"
+                                android:textColor="@color/neon_green"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/tech_font"
+                                android:letterSpacing="0.1" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="16dp"
+                                android:background="@drawable/tech_line_gradient" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="20dp">
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/stat_item_background"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical"
+                                    android:padding="16dp">
+
+                                    <ImageView
+                                        android:layout_width="28dp"
+                                        android:layout_height="28dp"
+                                        android:src="@drawable/ic_quiz_matrix"
+                                        android:tint="@color/neon_cyan"
+                                        android:layout_marginBottom="8dp" />
+
+                                    <TextView
+                                        android:id="@+id/total_quizzes_text_view"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/neon_cyan"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold"
+                                        android:fontFamily="@font/tech_font"
+                                        android:shadowColor="@color/neon_cyan_glow"
+                                        android:shadowDx="0"
+                                        android:shadowDy="0"
+                                        android:shadowRadius="6"
+                                        tools:text="127" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="4dp"
+                                        android:text="TOTAL QUIZZES"
+                                        android:textColor="@color/tech_white"
+                                        android:textSize="10sp"
+                                        android:fontFamily="@font/tech_font"
+                                        android:letterSpacing="0.1"
+                                        android:alpha="0.8" />
+
+                                </LinearLayout>
+                            </FrameLayout>
+
+                            <Space
+                                android:layout_width="12dp"
+                                android:layout_height="match_parent" />
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/stat_item_background"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical"
+                                    android:padding="16dp">
+
+                                    <ImageView
+                                        android:layout_width="28dp"
+                                        android:layout_height="28dp"
+                                        android:src="@drawable/ic_question_matrix"
+                                        android:tint="@color/neon_purple"
+                                        android:layout_marginBottom="8dp" />
+
+                                    <TextView
+                                        android:id="@+id/total_questions_text_view"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/neon_purple"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold"
+                                        android:fontFamily="@font/tech_font"
+                                        android:shadowColor="@color/neon_purple"
+                                        android:shadowDx="0"
+                                        android:shadowDy="0"
+                                        android:shadowRadius="6"
+                                        tools:text="2,549" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="4dp"
+                                        android:text="NEURAL QUERIES"
+                                        android:textColor="@color/tech_white"
+                                        android:textSize="10sp"
+                                        android:fontFamily="@font/tech_font"
+                                        android:letterSpacing="0.1"
+                                        android:alpha="0.8" />
+                                </LinearLayout>
+                            </FrameLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="16dp">
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/stat_success_background"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical"
+                                    android:padding="12dp">
+
+                                    <ImageView
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:src="@drawable/ic_success_matrix"
+                                        android:tint="@color/neon_green"
+                                        android:layout_marginBottom="6dp" />
+
+                                    <TextView
+                                        android:id="@+id/total_correct_questions_text_view"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/neon_green"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:fontFamily="@font/tech_font"
+                                        tools:text="1,847" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:text="CORRECT"
+                                        android:textColor="@color/neon_green"
+                                        android:textSize="9sp"
+                                        android:fontFamily="@font/tech_font"
+                                        android:letterSpacing="0.1" />
+                                </LinearLayout>
+                            </FrameLayout>
+
+                            <Space
+                                android:layout_width="8dp"
+                                android:layout_height="match_parent" />
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/stat_error_background"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical"
+                                    android:padding="12dp">
+
+                                    <ImageView
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:src="@drawable/ic_error_matrix"
+                                        android:tint="@color/error_red"
+                                        android:layout_marginBottom="6dp" />
+
+                                    <TextView
+                                        android:id="@+id/total_wrong_questions_text_view"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/error_red"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:fontFamily="@font/tech_font"
+                                        tools:text="527" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:text="ERRORS"
+                                        android:textColor="@color/error_red"
+                                        android:textSize="9sp"
+                                        android:fontFamily="@font/tech_font"
+                                        android:letterSpacing="0.1" />
+                                </LinearLayout>
+                            </FrameLayout>
+
+                            <Space
+                                android:layout_width="8dp"
+                                android:layout_height="match_parent" />
+
+                            <FrameLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/stat_warning_background"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical"
+                                    android:padding="12dp">
+
+                                    <ImageView
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:src="@drawable/ic_skip_matrix"
+                                        android:tint="@color/warning_yellow"
+                                        android:layout_marginBottom="6dp" />
+
+                                    <TextView
+                                        android:id="@+id/total_skipped_questions_text_view"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/warning_yellow"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:fontFamily="@font/tech_font"
+                                        tools:text="175" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:text="SKIPPED"
+                                        android:textColor="@color/warning_yellow"
+                                        android:textSize="9sp"
+                                        android:fontFamily="@font/tech_font"
+                                        android:letterSpacing="0.1" />
+                                </LinearLayout>
+                            </FrameLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/score_card_glow_effect"
+                    android:layout_margin="-6dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="16dp"
+                    app:cardUseCompatPadding="false">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/score_card_background"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="28dp">
+
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_quantum_score"
+                            android:tint="@color/neon_cyan"
                             android:layout_marginBottom="16dp" />
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TOTAL SCORE"
+                            android:textColor="@color/tech_white"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/tech_font"
+                            android:letterSpacing="0.15"
+                            android:alpha="0.9" />
+
+                        <TextView
+                            android:id="@+id/total_score_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:textColor="@color/neon_cyan"
+                            android:textSize="36sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/futuristic_font"
+                            android:shadowColor="@color/neon_cyan_glow"
+                            android:shadowDx="0"
+                            android:shadowDy="0"
+                            android:shadowRadius="12"
+                            android:letterSpacing="0.05"
+                            tools:text="847,259" />
+
+                        <ProgressBar
+                            android:id="@+id/score_progress_ring"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="16dp"
+                            android:indeterminateDrawable="@drawable/score_progress_ring"
+                            android:visibility="gone" />
 
                     </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#000000" />
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:cardBackgroundColor="@android:color/white"
-                app:cardCornerRadius="11dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#000000" />
-
-                    <TextView
-                        android:id="@+id/totalScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:shadowColor="#41559f"
-                        android:shadowDx="2"
-                        android:shadowDy="4"
-                        android:textColor="#2596be"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#000000" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="21dp" />
-
+                </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
         </LinearLayout>
-
     </ScrollView>
 
-</LinearLayout>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ProgressBar
+            android:id="@+id/profile_progress_bar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:indeterminateDrawable="@drawable/futuristic_progress_ring"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+
+        <View
+            android:id="@+id/loading_hologram"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/loading_hologram_pulse"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+    </FrameLayout>
+
+</FrameLayout>

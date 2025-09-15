@@ -1,33 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.AppTheme" parent="Theme.Material3.DayNight">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
 
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/colorPrimary</item>
-
+    <style name="Theme.IQBooster" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 
-    <style name="AppTheme" parent="Base.AppTheme" />
-
-    <style name="SplashTheme" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
-
-<!--        Disable default splash screen-->
-        <item name="android:windowIsTranslucent">true</item>
+    <style name="FuturisticTitle">
+        <item name="android:textColor">@color/neon_cyan</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:shadowColor">@color/neon_cyan_glow</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">8</item>
     </style>
 
+    <style name="TechSubtitle">
+        <item name="android:textColor">@color/tech_white</item>
+        <item name="android:alpha">0.9</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="FuturisticButtonPrimary" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/neon_cyan</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Primary</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <style name="FuturisticButtonSecondary" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/neon_purple</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Button.Secondary</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Button.Primary" parent="">
+        <item name="colorPrimary">@color/neon_cyan</item>
+        <item name="colorOnPrimary">@color/dark_space</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Button.Secondary" parent="">
+        <item name="colorPrimary">@color/neon_purple</item>
+        <item name="colorOnPrimary">@color/dark_space</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.IQBooster">
+
+    </style>
 
     <style name="NoAppAndBottomBar" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">
+            @android:color/transparent
+        </item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+
+    <style name="QuizOptionRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:background">@drawable/option_background_selector</item>
+        <item name="android:textColor">@color/optionTextColor</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="SummaryTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/questionTextColor</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginBottom">8dp</item>
     </style>
 
 </resources>

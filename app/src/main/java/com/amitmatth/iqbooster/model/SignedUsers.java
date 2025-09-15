@@ -45,7 +45,8 @@ public class SignedUsers implements Comparable<SignedUsers> {
         this.score = score;
     }
 
-    public SignedUsers() {} // Default constructor for Firebase
+    public SignedUsers() {
+    }
 
     public SignedUsers(String name, String email, String photoUrl, int score) {
         this.name = name;
@@ -54,7 +55,6 @@ public class SignedUsers implements Comparable<SignedUsers> {
         this.score = score;
     }
 
-    // Sorting logic (Higher score first)
     @Override
     public int compareTo(SignedUsers other) {
         return Integer.compare(other.score, this.score);

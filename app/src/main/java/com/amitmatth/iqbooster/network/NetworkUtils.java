@@ -12,7 +12,6 @@ public class NetworkUtils {
 
         if (connectivityManager != null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                // For Android 6.0 (API 23+) and above
                 android.net.Network network = connectivityManager.getActiveNetwork();
                 if (network == null) return false;
 
@@ -22,7 +21,6 @@ public class NetworkUtils {
                                 capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
                                 capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET));
             } else {
-                // For devices below API 23
                 android.net.NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
                 return networkInfo != null && networkInfo.isConnected();
             }

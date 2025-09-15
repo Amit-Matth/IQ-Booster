@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@android:color/transparent"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="false"
+    android:layout_marginBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/profile_card_background"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/rankTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="40dp"
+            tools:text="#1"
+            android:textColor="@color/neon_green"
+            android:fontFamily="@font/futuristic_font"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:shadowColor="@color/neon_green_glow"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="6"
+            android:layout_marginEnd="16dp"/>
+
+        <ImageView
+            android:id="@+id/avatarImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/user"
+            android:contentDescription="User Avatar"
+            android:layout_marginEnd="16dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Cmdr_QuantumLeap"
+                android:textColor="@color/tech_white"
+                android:fontFamily="@font/futuristic_font"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/scoreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Score: 1,234,567"
+                android:textColor="@color/neon_cyan_dim"
+                android:fontFamily="@font/tech_font"
+                android:textSize="14sp"
+                android:alpha="0.8"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/levelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="LVL 99"
+            android:textColor="@color/neon_purple"
+            android:fontFamily="@font/tech_font"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            android:shadowColor="@color/neon_purple"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="4"/>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

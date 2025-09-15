@@ -1,0 +1,8 @@
+<!-- res/drawable/holographic_inner_ring.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <stroke
+        android:width="2dp"
+        android:color="#8800FFFF" />
+    <solid android:color="@android:color/transparent" />
+</shape>

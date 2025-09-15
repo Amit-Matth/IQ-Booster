@@ -1,28 +1,27 @@
 package com.amitmatth.iqbooster.data;
 
-import android.media.Image;
-import android.widget.ImageView;
 
 public class Users {
     public String photoUrl;
     public String name;
-
     private int id;
     public int score;
     public int rank;
-
     public int totalQuestions;
+    public int level;
 
-    public Users(String photoUrl, String name, int id, int score, int rank, int totalQuestions) {
+    public Users(String photoUrl, String name, int id, int score, int rank, int totalQuestions, int level) {
         this.name = name;
         this.photoUrl = photoUrl;
         this.id = id;
         this.score = score;
         this.rank = rank;
         this.totalQuestions = totalQuestions;
+        this.level = level;
     }
 
-    public Users() {}
+    public Users() {
+    }
 
     public String getName() {
         return this.name;
@@ -64,7 +63,6 @@ public class Users {
         this.photoUrl = photoUrl;
     }
 
-
     public int getTotalQuestions() {
         return totalQuestions;
     }
@@ -73,4 +71,11 @@ public class Users {
         this.totalQuestions = totalQuestions;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
 }

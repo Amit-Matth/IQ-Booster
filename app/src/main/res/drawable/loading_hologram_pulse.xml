@@ -1,0 +1,22 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="300">
+        <shape android:shape="oval">
+            <solid android:color="#4400FFFF" />
+        </shape>
+    </item>
+    <item android:duration="300">
+        <shape android:shape="oval">
+            <solid android:color="#8800FFFF" />
+        </shape>
+    </item>
+    <item android:duration="300">
+        <shape android:shape="oval">
+            <solid android:color="#CC00FFFF" />
+        </shape>
+    </item>
+    <item android:duration="300">
+        <shape android:shape="oval">
+            <solid android:color="#8800FFFF" />
+        </shape>
+    </item>
+</animation-list>
